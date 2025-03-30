@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <!-- Background -->
+  <rect width="800" height="500" fill="#f8f9fa" />
+  
+  <!-- Título -->
+  <text x="400" y="40" font-family="Arial" font-size="24" text-anchor="middle" font-weight="bold">Arquitetura do Editor CSV</text>
+  
+  <!-- Frontend Box -->
+  <rect x="50" y="80" width="300" height="340" rx="10" ry="10" fill="#e3f2fd" stroke="#2196f3" stroke-width="2" />
+  <text x="200" y="110" font-family="Arial" font-size="18" text-anchor="middle" font-weight="bold">Frontend (React/Vite)</text>
+  
+  <!-- Frontend Components -->
+  <rect x="70" y="130" width="260" height="40" rx="5" ry="5" fill="#bbdefb" stroke="#1e88e5" stroke-width="1" />
+  <text x="200" y="155" font-family="Arial" font-size="14" text-anchor="middle">Componente de Upload</text>
+  
+  <rect x="70" y="180" width="260" height="40" rx="5" ry="5" fill="#bbdefb" stroke="#1e88e5" stroke-width="1" />
+  <text x="200" y="205" font-family="Arial" font-size="14" text-anchor="middle">Editor de Tabela</text>
+  
+  <rect x="70" y="230" width="260" height="40" rx="5" ry="5" fill="#bbdefb" stroke="#1e88e5" stroke-width="1" />
+  <text x="200" y="255" font-family="Arial" font-size="14" text-anchor="middle">Dashboard de Erros</text>
+  
+  <rect x="70" y="280" width="260" height="40" rx="5" ry="5" fill="#bbdefb" stroke="#1e88e5" stroke-width="1" />
+  <text x="200" y="305" font-family="Arial" font-size="14" text-anchor="middle">Gerador de Relatórios</text>
+  
+  <rect x="70" y="330" width="260" height="40" rx="5" ry="5" fill="#bbdefb" stroke="#1e88e5" stroke-width="1" />
+  <text x="200" y="355" font-family="Arial" font-size="14" text-anchor="middle">Sidebar de Navegação</text>
+  
+  <!-- Backend Box -->
+  <rect x="450" y="80" width="300" height="340" rx="10" ry="10" fill="#e8f5e9" stroke="#4caf50" stroke-width="2" />
+  <text x="600" y="110" font-family="Arial" font-size="18" text-anchor="middle" font-weight="bold">Backend (Python/Flask)</text>
+  
+  <!-- Backend Components -->
+  <rect x="470" y="130" width="260" height="40" rx="5" ry="5" fill="#c8e6c9" stroke="#43a047" stroke-width="1" />
+  <text x="600" y="155" font-family="Arial" font-size="14" text-anchor="middle">API de Arquivos</text>
+  
+  <rect x="470" y="180" width="260" height="40" rx="5" ry="5" fill="#c8e6c9" stroke="#43a047" stroke-width="1" />
+  <text x="600" y="205" font-family="Arial" font-size="14" text-anchor="middle">Validador de CSV</text>
+  
+  <rect x="470" y="230" width="260" height="40" rx="5" ry="5" fill="#c8e6c9" stroke="#43a047" stroke-width="1" />
+  <text x="600" y="255" font-family="Arial" font-size="14" text-anchor="middle">Corretor Automático</text>
+  
+  <rect x="470" y="280" width="260" height="40" rx="5" ry="5" fill="#c8e6c9" stroke="#43a047" stroke-width="1" />
+  <text x="600" y="305" font-family="Arial" font-size="14" text-anchor="middle">Serviço de Relatórios</text>
+  
+  <rect x="470" y="330" width="260" height="40" rx="5" ry="5" fill="#c8e6c9" stroke="#43a047" stroke-width="1" />
+  <text x="600" y="355" font-family="Arial" font-size="14" text-anchor="middle">Integração PostgreSQL</text>
+  
+  <!-- Database -->
+  <rect x="350" y="440" width="100" height="40" rx="5" ry="5" fill="#ede7f6" stroke="#673ab7" stroke-width="2" />
+  <text x="400" y="465" font-family="Arial" font-size="14" text-anchor="middle">PostgreSQL</text>
+  
+  <!-- Arrows -->
+  <!-- Frontend to Backend -->
+  <line x1="350" y1="200" x2="450" y2="200" stroke="#757575" stroke-width="2" stroke-dasharray="5,5" />
+  <polygon points="445,195 455,200 445,205" fill="#757575" />
+  
+  <!-- Backend to Frontend -->
+  <line x1="450" y1="220" x2="350" y2="220" stroke="#757575" stroke-width="2" stroke-dasharray="5,5" />
+  <polygon points="355,215 345,220 355,225" fill="#757575" />
+  
+  <!-- Backend to Database -->
+  <line x1="600" y1="380" x2="400" y2="440" stroke="#757575" stroke-width="2" />
+  <polygon points="403,435 398,445 408,440" fill="#757575" />
+</svg>
