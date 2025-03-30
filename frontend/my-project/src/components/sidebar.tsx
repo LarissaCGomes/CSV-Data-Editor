@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 const Sidebar = ({ handleAutoCorrect }: { handleAutoCorrect: () => void }) => {
   return (
-    <aside className="w-64 bg-white shadow-md min-h-screen">
+    <aside className="w-64 bg-white shadow-md min-h-screen fixed">
       <nav className="p-4">
         <ul className="space-y-2">
           <li>
