@@ -154,7 +154,7 @@ const EditPage = () => {
             </div>
           </div>
           
-          <div className="bg-white rounded-lg shadow-md overflow-x-auto">
+          <div className="bg-white p-6 rounded-lg shadow-md overflow-x-auto">
             <table className="w-full border-collapse">
               <thead>
                 <tr className="bg-gray-50">

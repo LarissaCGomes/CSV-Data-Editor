@@ -15,7 +15,7 @@ const App = () => {
         <Sidebar handleAutoCorrect={() => console.log('Auto-correcting...')} />
         
         <div className="flex-1">
-          <main className="p-6 bg-gray-50">
+          <main className="p-6 bg-blue-50">
             <Routes>
               <Route path="/" element={<UploadVerificationPage />} />
               <Route path="/editing-page" element={<EditPage />} />
