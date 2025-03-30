@@ -1,11 +1,18 @@
+import React from 'react';
+import { Globe, Save } from 'lucide-react';
 
 const Header = () => {
   return (
-    <header className="bg-blue-600 text-white p-4 shadow flex justify-between items-center">
-      <h1 className="text-xl font-bold"> INPE - Sensoriamento Remoto</h1>
-      <div className="flex items-center gap-2">
-        <button className="bg-white text-blue-600 py-1 px-3 rounded text-sm hover:bg-blue-50">
-          Salvar Progresso
+    <header className="bg-gradient-to-r from-blue-700 to-blue-500 text-white p-4 shadow-md flex justify-between items-center">
+      <div className="flex items-center space-x-2">
+        <Globe className="h-6 w-6" />
+        <h1 className="text-xl font-bold tracking-wide">INPE - Sensoriamento Remoto</h1>
+      </div>
+      
+      <div className="flex items-center">
+        <button className="bg-white text-blue-600 py-1.5 px-4 rounded-md text-sm font-medium hover:bg-blue-50 transition-colors flex items-center gap-2 shadow-sm">
+          <Save className="h-4 w-4" />
+          <span>Salvar Progresso</span>
         </button>
       </div>
     </header>
