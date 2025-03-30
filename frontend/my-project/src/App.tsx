@@ -17,7 +17,7 @@ const App = () => {
         <div className="flex-1">
           <main className="p-6 bg-gray-50">
             <Routes>
-              <Route path="/verify-upload" element={<UploadVerificationPage />} />
+              <Route path="/" element={<UploadVerificationPage />} />
               <Route path="/editing-page" element={<EditPage />} />
               <Route path="/upload-database" element={<UploadDatabasePage />} />
               <Route path="/reports" element={<ReportsPage />} />

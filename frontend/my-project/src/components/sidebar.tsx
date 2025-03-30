@@ -8,7 +8,7 @@ const Sidebar = ({ handleAutoCorrect }: { handleAutoCorrect: () => void }) => {
         <ul className="space-y-2">
           <li>
             <NavLink
-              to="/verify-upload"
+              to="/"
               className={({ isActive }) => 
                 `hover:bg-gray-100 rounded p-2 text-gray-700 flex items-center ${isActive ? 'bg-blue-100 text-blue-800 font-medium' : ''}`
               }
