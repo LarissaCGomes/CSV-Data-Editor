@@ -1,0 +1,4 @@
+__pycache__
+.env
+csv-data-editor-venv
+db.sqlite3
