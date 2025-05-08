@@ -1,9 +1,10 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Upload, AlertTriangle, AlertCircle, FileText } from 'lucide-react';
 
 const UploadVerificationPage = () => {
   const [fileUploaded, setFileUploaded] = useState(false);
   const [verificationComplete, setVerificationComplete] = useState(false);
+
   interface CsvData {
     columns: string[];
     rows: { id: number; values: string[]; errors: number[] }[];
@@ -26,32 +27,75 @@ const UploadVerificationPage = () => {
     columnErrors: [2] // Índice da coluna com nome incorreto
   };
   
-  const handleFileUpload = (e: { preventDefault: () => void; }) => {
+  const handleFileUpload = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    const input = document.getElementById("file-upload") as HTMLInputElement;
+    const files = input?.files;
+  
+    if (!files || files.length === 0) {
+      alert("Nenhum arquivo selecionado.");
+      return;
+    }
+  
+    const invalidFiles = Array.from(files).filter(
+      (file) => !file.name.toLowerCase().endsWith(".csv")
+    );
+  
+    if (invalidFiles.length > 0) {
+      alert("Todos os arquivos na pasta devem ser arquivos CSV.");
+      return;
+    }
+
+    const formData = new FormData();
+
+    Array.from(files).forEach((file) => {
+      const nameWithoutExtension = file.name.replace(/\.[^/.]+$/, "")
+      formData.append(`new_data_${nameWithoutExtension}`, file);
+    });
+
+    try {
+      const response = await fetch('http://127.0.0.1:8000/api/upload-csv/', {
+        method: "POST",
+        body: formData,
+      })
+
+      const data = await response.json()
+
+      console.log(data)
+    } catch{
+      console.log('deu bo')
+    }
     
-    // Simular upload e verificação
-    setTimeout(() => {
-      setFileUploaded(true);
-      setTimeout(() => {
-        setVerificationComplete(true);
-        setCsvData(sampleData);
+    // setTimeout(() => {
+    //   setFileUploaded(true);
+    //   setTimeout(() => {
+    //     setVerificationComplete(true);
+    //     setCsvData(sampleData);
         
-        // Contar erros
-        let errorCount = 0;
-        sampleData.rows.forEach(row => {
-          errorCount += row.errors.length;
-        });
-        errorCount += sampleData.columnErrors.length;
+    //     // Contar erros
+    //     let errorCount = 0;
+    //     sampleData.rows.forEach(row => {
+    //       errorCount += row.errors.length;
+    //     });
+    //     errorCount += sampleData.columnErrors.length;
         
-        setErrors([
-          { type: 'column', message: 'Nome de coluna fora do padrão: "Local" (deveria ser "Local_Coleta")', count: 1 },
-          { type: 'format', message: 'Formato de data incorreto: encontrado "2023/05/11", esperado "YYYY-MM-DD"', count: 1 },
-          { type: 'type', message: 'Erro de tipo: valor não numérico em coluna numérica', count: 2 },
-          { type: 'value', message: 'Valor inválido: número negativo ou NaN em medição', count: 2 }
-        ]);
-      }, 1000);
-    }, 1000);
+    //     setErrors([
+    //       { type: 'column', message: 'Nome de coluna fora do padrão: "Local" (deveria ser "Local_Coleta")', count: 1 },
+    //       { type: 'format', message: 'Formato de data incorreto: encontrado "2023/05/11", esperado "YYYY-MM-DD"', count: 1 },
+    //       { type: 'type', message: 'Erro de tipo: valor não numérico em coluna numérica', count: 2 },
+    //       { type: 'value', message: 'Valor inválido: número negativo ou NaN em medição', count: 2 }
+    //     ]);
+    //   }, 1000);
+    // }, 1000);
   };
+  const fileInputRef = useRef<HTMLInputElement | null>(null);
+
+  useEffect(() => {
+    if (fileInputRef.current) {
+      fileInputRef.current.setAttribute("webkitdirectory", "");
+    }
+  }, []);
   
   return (
       <div className="flex flex-1 overflow-hidden min-h-screen">
@@ -71,7 +115,7 @@ const UploadVerificationPage = () => {
               
               <form onSubmit={handleFileUpload} className="flex flex-col items-center">
                 <div className="border-2 border-dashed border-gray-300 rounded-lg p-8 w-full max-w-md hover:border-blue-400 transition-colors">
-                  <input type="file" className="hidden" id="file-upload" accept=".csv" />
+                  <input ref={fileInputRef} type="file" className="hidden" id="file-upload" accept=".csv"/>
                   <label htmlFor="file-upload" className="cursor-pointer flex flex-col items-center">
                     <FileText className="h-12 w-12 text-gray-400 mb-2" />
                     <span className="text-gray-600">Clique para selecionar um arquivo ou arraste-o aqui</span>
