@@ -61,33 +61,11 @@ const UploadVerificationPage = () => {
       })
 
       const data = await response.json()
-
       console.log(data)
-    } catch{
-      console.log('deu bo')
+
+    } catch (error){
+      console.log(`Erro ao fazer requisição: ${error}`)
     }
-    
-    // setTimeout(() => {
-    //   setFileUploaded(true);
-    //   setTimeout(() => {
-    //     setVerificationComplete(true);
-    //     setCsvData(sampleData);
-        
-    //     // Contar erros
-    //     let errorCount = 0;
-    //     sampleData.rows.forEach(row => {
-    //       errorCount += row.errors.length;
-    //     });
-    //     errorCount += sampleData.columnErrors.length;
-        
-    //     setErrors([
-    //       { type: 'column', message: 'Nome de coluna fora do padrão: "Local" (deveria ser "Local_Coleta")', count: 1 },
-    //       { type: 'format', message: 'Formato de data incorreto: encontrado "2023/05/11", esperado "YYYY-MM-DD"', count: 1 },
-    //       { type: 'type', message: 'Erro de tipo: valor não numérico em coluna numérica', count: 2 },
-    //       { type: 'value', message: 'Valor inválido: número negativo ou NaN em medição', count: 2 }
-    //     ]);
-    //   }, 1000);
-    // }, 1000);
   };
   const fileInputRef = useRef<HTMLInputElement | null>(null);
 
