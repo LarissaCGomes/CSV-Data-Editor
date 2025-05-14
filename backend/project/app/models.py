@@ -42,7 +42,7 @@ class Estacoes(models.Model):
         return self.estacao_nome
     
 class Acdom(DynamicFieldsModel):
-    estacao = models.ForeignKey('Estacoes', on_delete=models.CASCADE, related_name='pontos_acdom')
+    estacoes_id = models.ForeignKey('Estacoes', on_delete=models.CASCADE, related_name='pontos_acdom')
     
     class Meta:
         db_table = 'acdom'
@@ -57,7 +57,7 @@ Acdom.add_wavelength_fields(
 )
 
 class AcsAtenuationTs(DynamicFieldsModel):
-    estacao = models.ForeignKey('Estacoes', on_delete=models.CASCADE, related_name='pontos_acs_atenuation_ts')
+    estacoes_id = models.ForeignKey('Estacoes', on_delete=models.CASCADE, related_name='pontos_acs_atenuation_ts')
     profundidade = models.FloatField(null=True, blank=True)
 
     class Meta:
@@ -73,7 +73,7 @@ AcsAtenuationTs.add_wavelength_fields(
 )
 
 class AcsFlat(DynamicFieldsModel):
-    estacao = models.ForeignKey('Estacoes', on_delete=models.CASCADE, related_name='pontos_acs_flat')
+    estacoes_id = models.ForeignKey('Estacoes', on_delete=models.CASCADE, related_name='pontos_acs_flat')
     profundidade = models.FloatField(null=True, blank=True)
 
     class Meta:
@@ -89,7 +89,7 @@ AcsFlat.add_wavelength_fields(
 )
 
 class AcsKirk(DynamicFieldsModel):
-    estacao = models.ForeignKey('Estacoes', on_delete=models.CASCADE, related_name='pontos_acs_kirk')
+    estacoes_id = models.ForeignKey('Estacoes', on_delete=models.CASCADE, related_name='pontos_acs_kirk')
     profundidade = models.FloatField(null=True, blank=True)
 
     class Meta:
@@ -105,7 +105,7 @@ AcsKirk.add_wavelength_fields(
 )
 
 class AcsTs(DynamicFieldsModel):
-    estacao = models.ForeignKey('Estacoes', on_delete=models.CASCADE, related_name='pontos_acs_ts')
+    estacoes_id = models.ForeignKey('Estacoes', on_delete=models.CASCADE, related_name='pontos_acs_ts')
     profundidade = models.FloatField(null=True, blank=True)
 
     class Meta:
@@ -121,7 +121,7 @@ AcsTs.add_wavelength_fields(
 )
 
 class AdetMean(DynamicFieldsModel):
-    estacao = models.ForeignKey('Estacoes', on_delete=models.CASCADE, related_name='pontos_adet_mean')
+    estacoes_id = models.ForeignKey('Estacoes', on_delete=models.CASCADE, related_name='pontos_adet_mean')
 
     class Meta:
         db_table = 'adet_mean'
@@ -136,7 +136,7 @@ AdetMean.add_wavelength_fields(
 )
 
 class AphyMean(DynamicFieldsModel):
-    estacao = models.ForeignKey('Estacoes', on_delete=models.CASCADE, related_name='pontos_aphy_mean')
+    estacoes_id = models.ForeignKey('Estacoes', on_delete=models.CASCADE, related_name='pontos_aphy_mean')
 
     class Meta:
         db_table = 'aphy_mean'
@@ -151,7 +151,7 @@ AphyMean.add_wavelength_fields(
 )
  
 class Ed(DynamicFieldsModel):
-    estacao = models.ForeignKey('Estacoes', on_delete=models.CASCADE, related_name='pontos_ed')
+    estacoes_id = models.ForeignKey('Estacoes', on_delete=models.CASCADE, related_name='pontos_ed')
     datetime = models.CharField(max_length=255, null=True, blank=True)
     profundidade = models.FloatField(null=True, blank=True)
 
@@ -168,7 +168,7 @@ Ed.add_wavelength_fields(
 )
 
 class Es(DynamicFieldsModel):
-    estacao = models.ForeignKey('Estacoes', on_delete=models.CASCADE, related_name='pontos_es')
+    estacoes_id = models.ForeignKey('Estacoes', on_delete=models.CASCADE, related_name='pontos_es')
     datetime = models.CharField(max_length=255, null=True, blank=True)
 
     class Meta:
@@ -184,7 +184,7 @@ Es.add_wavelength_fields(
 )
     
 class Eu(DynamicFieldsModel):
-    estacao = models.ForeignKey('Estacoes', on_delete=models.CASCADE, related_name='pontos_eu')
+    estacoes_id = models.ForeignKey('Estacoes', on_delete=models.CASCADE, related_name='pontos_eu')
     datetime = models.CharField(max_length=255, null=True, blank=True)
     profundidade = models.FloatField(null=True, blank=True)
 
@@ -201,7 +201,7 @@ Eu.add_wavelength_fields(
 )
 
 class Kd(DynamicFieldsModel):
-    estacao = models.ForeignKey('Estacoes', on_delete=models.CASCADE, related_name='pontos_kd')
+    estacoes_id = models.ForeignKey('Estacoes', on_delete=models.CASCADE, related_name='pontos_kd')
 
     class Meta:
         db_table = 'kd'
@@ -216,7 +216,7 @@ Kd.add_wavelength_fields(
 )
 
 class Limnologia(models.Model):
-    estacao = models.ForeignKey('Estacoes', on_delete=models.CASCADE, related_name='pontos_limnologia')
+    estacoes_id = models.ForeignKey('Estacoes', on_delete=models.CASCADE, related_name='pontos_limnologia')
     chla = models.FloatField(null=True, blank=True)
     feofitina = models.FloatField(null=True, blank=True)
     tss = models.FloatField(null=True, blank=True)
@@ -241,7 +241,7 @@ class Limnologia(models.Model):
         return f"Limnologia {self.id}"
 
 class Lsky(DynamicFieldsModel):
-    estacao = models.ForeignKey('Estacoes', on_delete=models.CASCADE, related_name='pontos_lsky')
+    estacoes_id = models.ForeignKey('Estacoes', on_delete=models.CASCADE, related_name='pontos_lsky')
     datetime = models.CharField(max_length=255, null=True, blank=True)
 
     class Meta:
@@ -257,7 +257,7 @@ Lsky.add_wavelength_fields(
 )
     
 class Lu(DynamicFieldsModel):
-    estacao = models.ForeignKey('Estacoes', on_delete=models.CASCADE, related_name='pontos_lu')
+    estacoes_id = models.ForeignKey('Estacoes', on_delete=models.CASCADE, related_name='pontos_lu')
     datetime = models.CharField(max_length=255, null=True, blank=True)
     profundidade = models.FloatField(null=True, blank=True)
 
@@ -274,7 +274,7 @@ Lu.add_wavelength_fields(
 )
 
 class Lw(DynamicFieldsModel):
-    estacao = models.ForeignKey('Estacoes', on_delete=models.CASCADE, related_name='pontos_lw')
+    estacoes_id = models.ForeignKey('Estacoes', on_delete=models.CASCADE, related_name='pontos_lw')
     datetime = models.CharField(max_length=255, null=True, blank=True)
 
     class Meta:
@@ -290,7 +290,7 @@ Lw.add_wavelength_fields(
 )
 
 class RrsCompleta(DynamicFieldsModel):
-    estacao = models.ForeignKey('Estacoes', on_delete=models.CASCADE, related_name='pontos_rrs_completa')
+    estacoes_id = models.ForeignKey('Estacoes', on_delete=models.CASCADE, related_name='pontos_rrs_completa')
     datetime = models.DateTimeField()
 
     class Meta:
@@ -306,7 +306,7 @@ RrsCompleta.add_wavelength_fields(
 )
 
 class RrsMediana(DynamicFieldsModel):
-    estacao = models.ForeignKey('Estacoes', on_delete=models.CASCADE, related_name='pontos_rrs_mediana')
+    estacoes_id = models.ForeignKey('Estacoes', on_delete=models.CASCADE, related_name='pontos_rrs_mediana')
     datetime = models.DateTimeField()
 
     class Meta:

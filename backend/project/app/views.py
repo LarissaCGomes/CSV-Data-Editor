@@ -141,8 +141,9 @@ class FileUploadView(APIView):
         file_proc = FileProcessor()
 
         processed_data = {
-            #table_name: [data_json, not_nan_coord]
+            #table_name: [[data_json], [not_nan_coord]]
         }
+
         for table_name, file_obj in files_data.items():
             try:
                 processed_df, errors_coord, schema = file_proc.process_csv(file_obj, table_name, models_map[table_name])
@@ -150,8 +151,6 @@ class FileUploadView(APIView):
                 dataframe_json = processed_df.to_dict(orient='records')
 
                 processed_data[table_name] = [dataframe_json, errors_coord]
-
-                print(f'{table_name} processado.')
             
             except Exception as e:
                 return Response(
@@ -160,35 +159,3 @@ class FileUploadView(APIView):
                 )
 
         return Response(processed_data, status=status.HTTP_200_OK)
-
-    # def post(self, request, format=None):
-        
-
-    #     table_name = request.data.get('name')
-    #     if table_name not in models_map:
-    #         return Response(
-    #             {'error': f'Tabela {table_name} não encontrada'},
-    #             status=status.HTTP_400_BAD_REQUEST
-    #         )
-        
-    #     file_path = request.data.get('path')
-
-    #     file_proc = FileProcessor()
-    #     try:
-    #         processed_df, not_nan_coord, schema = file_proc.process_csv(file_path, table_name, models_map[table_name])
-
-    #         data_json = processed_df.to_dict(orient='records')
-
-    #         return Response(
-    #             {
-    #                 'name': table_name,
-    #                 'errors_coord': not_nan_coord,
-    #                 'data_json': data_json
-    #             },
-    #             status=status.HTTP_200_OK
-    #         )
-
-    #     except Exception as e:
-    #         return Response(
-    #             {'Erro de processamento': str(e)}, status=status.HTTP_400_BAD_REQUEST
-    #         )

@@ -21,7 +21,6 @@ class FileProcessor():
         try:
             text_stream = io.StringIO(file_obj.read().decode(encod))
             dataframe = pd.read_csv(text_stream, delimiter=delim)
-            print(dataframe)
         except Exception as e:
             raise Exception(f'Erro ao ler o csv {table_name}: {str(e)}')
         
@@ -82,10 +81,10 @@ class FileProcessor():
                     continue
                 dataframe = dataframe.rename(columns={col_name: columns_to_rename[col_name]})
 
-        columns_match = [col_name for col_name in dataframe.columns if col_name not in ['id', 'geom'] and col_name in schema_cols]
-
+        columns_match = [col_name for col_name in dataframe.columns if col_name not in ['id'] and col_name in schema_cols]
+        
         dataframe = dataframe[columns_match]
-
+        
         return dataframe
     
     def type_validation(self, dataframe: pd.DataFrame, schema: Dict[str, str]):
