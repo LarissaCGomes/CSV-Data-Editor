@@ -36,12 +36,11 @@ O **CSV Data Editor** é uma aplicação web desenvolvida para facilitar a valid
 ## 🏗️ Estrutura do Projeto
 ```
 📦 csv-data-editor  
-├── 📂 backend               # Código do Flask (API, Banco de Dados)  
+├── 📂 backend               # Código (API, Banco de Dados)  
 │   ├── 📂 models            # Definição das tabelas do PostgreSQL  
 │   ├── 📂 routes            # Rotas da API  
 │   ├── 📂 services          # Lógica de validação e correção de CSV  
 │   ├── 📂 utils             # Funções auxiliares  
-│   ├── main.py              # Ponto de entrada do Flask  
 │   ├── requirements.txt     # Dependências do backend  
 │
 ├── 📂 frontend              # Código do React + Vite  
