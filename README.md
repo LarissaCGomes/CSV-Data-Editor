@@ -9,7 +9,7 @@ O **CSV Data Editor** é uma aplicação web desenvolvida para facilitar a valid
 - **Upload de arquivos CSV**
 - **Validação automática** dos dados conforme um padrão predefinido
 - **Identificação e marcação de erros** (ex.: formatação incorreta, tipo de dado incompatível, nomes de colunas errados)
-- **Correção manual e automática** dos erros detectados
+- **Correção manual** dos erros detectados
 - **Exibição dos dados em formato de tabela** (estilo Excel)
 - **Geração de relatórios** sobre os erros encontrados e correções realizadas
 - **Download e envio por e-mail** dos relatórios
@@ -20,7 +20,7 @@ O **CSV Data Editor** é uma aplicação web desenvolvida para facilitar a valid
 
 ## 🛠️ Tecnologias Utilizadas
 ### Backend
-- **Python** + **Flask** (API e validação de dados)
+- **Python** (API e validação de dados)
 - **PostgreSQL** (Banco de Dados)
 
 ### Frontend
@@ -66,7 +66,6 @@ O **CSV Data Editor** é uma aplicação web desenvolvida para facilitar a valid
 
 ## 🚀 Como Rodar o Projeto
 ### 🖥️ Requisitos
-- **Docker** e **Docker Compose**
 - **Python 3.10+**
 - **Node.js 18+**
 
@@ -79,23 +78,6 @@ $ cd csv-data-editor
 
 #### 2️⃣ Configure as variáveis de ambiente
 Crie um arquivo `.env` na raiz do projeto e defina as configurações do banco de dados e servidor.
-
-#### 3️⃣ Execute com Docker (recomendado)
-```bash
-$ docker-compose up --build
-```
-O backend rodará em `http://localhost:5000` e o frontend em `http://localhost:3000`.
-
-#### 4️⃣ Ou execute manualmente
-##### Backend
-```bash
-$ cd backend
-$ python -m venv venv
-$ source venv/bin/activate  # Linux/macOS
-$ venv\Scripts\activate     # Windows
-$ pip install -r requirements.txt
-$ python main.py
-```
 
 ##### Frontend
 ```bash
